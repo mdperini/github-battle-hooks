@@ -5,6 +5,7 @@ import { ThemeProvider } from './contexts/theme'
 import Nav from './components/Nav'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Loading from './components/Loading'
+import { FaPlus, FaMinus} from 'react-icons/fa';
 
 const Popular = React.lazy(()=> import('./components/Popular'))
 const Battle = React.lazy(()=> import('./components/Battle'))
@@ -43,8 +44,65 @@ class App extends React.Component {
         )
     }
 }
+
+function Theme() {
+    const [theme, setTheme] = React.useState('light')
+
+    const toDark = () => setTheme('dark')
+    const toLight = () => setTheme('light')
+
+    return (
+        <div className={theme}>
+            {theme === 'light'
+            ? <button onClick={toDark} className='avatar'>🔦</button>
+            : <button onClick={toLight} className='avatar'>💡</button>}
+        </div>
+    )
+}
+
+function generateId() {
+    return '_' + Math.random().toString(36).substr(2,9);
+}
+
+function Todo() {
+    const [todos, setTodos] = React.useState([])
+    const [input, setInput] = React.useState('')
+
+    const handleSubmit = () => {
+        setTodos((todos) => todos.concat({
+            text: input,
+            id: generateId()
+        }))
+
+        setInput('')
+    }
+
+    const removeToDo = (id) => setTodos((todos) => todos.filter((t) => t.id !== id))
+
+    return (
+        <div>
+            <input
+                type='text'
+                className='input-light'
+                placeholder='New Todo'
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+            />
+            <button onClick={handleSubmit} >Submit</button>
+
+            <ul>
+                {todos.map(({ text, id }) => (
+                 <li key={id}>
+                     <span>{text}</span>
+                     <button onClick={() => removeToDo(id)}>x</button>
+                 </li>   
+                ))}
+            </ul>      
+        </div>
+    )
+}
  
 ReactDOM.render(
-    <App />,
+    <Todo />,
     document.getElementById('app')
 )
