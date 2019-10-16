@@ -101,8 +101,49 @@ function Todo() {
         </div>
     )
 }
+
+function CharacterLimit() {
+    const [input, setInput] = React.useState('')
+
+    React.useEffect(() => {
+        document.title= `${240 - input.length}`
+    })
+
+    return (
+        <div className="app">
+            <textarea
+                type="text"
+                value={input}
+                placeholder='Type'
+                onChange={(e) => setInput(e.target.value)}
+                 />
+                 <button
+                    disabled={input.length === 0 || input.length > 240}
+                    onClick={() => console.log(input)}>
+                    Submit
+                 </button>
+                 <button
+                    disabled={input.length === 0}
+                    onClick={() => setInput('')}>
+                    Clear
+                 </button>
+                 <button
+                    disabled={input.length > 0}
+                    onClick={() => {
+                        let str = ''
+                        for(var i =0; i < 500; i++) {
+                            str = str + i      
+                        }
+                        
+                        setInput(str)
+                    }}>
+                    Load
+                 </button>
+        </div>
+    )
+}
  
 ReactDOM.render(
-    <Todo />,
+    <CharacterLimit />,
     document.getElementById('app')
 )
