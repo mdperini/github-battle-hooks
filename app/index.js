@@ -170,6 +170,6 @@ function WaitDelay() {
 }
  
 ReactDOM.render(
-    <WaitDelay />,
+    <App />,
     document.getElementById('app')
 )
