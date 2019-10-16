@@ -142,8 +142,34 @@ function CharacterLimit() {
         </div>
     )
 }
+
+function Wait({ delay = 100, placeholder, ui }) {
+    const [show, setShow] = React.useState(false)
+
+    React.useEffect(() => {
+        const id = window.setTimeout(() => {
+            setShow(true)
+        }, delay)
+    }, [delay])
+
+    return show === true 
+        ? ui
+        : placeholder
+}
+
+function WaitDelay() {
+    return (
+        <div className='App'>
+            <Wait
+                delay={3000}
+                placeholder={<p>Waiting...</p>}
+                ui={<p>This text should appear after 3 seconds</p>}
+                />
+        </div>
+    )
+}
  
 ReactDOM.render(
-    <CharacterLimit />,
+    <WaitDelay />,
     document.getElementById('app')
 )
