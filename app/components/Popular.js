@@ -4,7 +4,7 @@ import { fetchPopularRepos} from '../utils/api';
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa';
 import Loading from './Loading'
 
-function LanguagesNav({ selected, onUpdateLangauge }) {
+const LanguagesNav = ({ selected, onUpdateLangauge }) => {
     const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python', 'HTML'];
 
     return (
@@ -28,7 +28,7 @@ function LanguagesNav({ selected, onUpdateLangauge }) {
     }
 }
  
-function RepoGrid({ repos }) {
+const RepoGrid = ({ repos }) => {
     return (
        <ul className='grid space-around'>
            {repos.map((repo, index) => {

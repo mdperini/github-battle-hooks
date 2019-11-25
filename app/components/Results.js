@@ -8,7 +8,7 @@ import Toolip from './Tooltip'
 import queryString from 'query-string'
 import { Link } from 'react-router-dom'
 
-function ProfileList ({ profile }) {
+const ProfileList = ({ profile }) => {
     return (
         <ul className='card-list'>
             <li>
