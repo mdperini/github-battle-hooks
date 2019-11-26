@@ -5,7 +5,7 @@ import Results from './Results'
 import { ThemeConsumer } from '../contexts/theme'
 import { Link } from 'react-router-dom'
 
-function Instructions () {
+const Instructions = () => {
     return (
         <ThemeConsumer>
             {(theme) => (
@@ -86,7 +86,7 @@ PlayerInput.propTypes = {
     label: PropTypes.string.isRequired                
 }
 
-function PlayerPreview ({ username, onReset, label }) {
+const PlayerPreview = ({ username, onReset, label }) => {
     return (
         <ThemeConsumer>
             {(theme) =>(

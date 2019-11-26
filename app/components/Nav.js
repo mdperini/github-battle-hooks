@@ -6,7 +6,7 @@ const activeStyle = {
     color: 'rgb(187, 46, 31)'
 }
 
-const Nav = ({ toggleTheme }) => {
+export default function Nav ({ toggleTheme }) {
     return (
         <ThemeConsumer>
             {( theme ) => (
@@ -43,4 +43,3 @@ const Nav = ({ toggleTheme }) => {
     )
 }
 
-export default Nav

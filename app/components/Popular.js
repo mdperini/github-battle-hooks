@@ -28,7 +28,7 @@ const LanguagesNav = ({ selected, onUpdateLangauge }) => {
     }
 }
  
-const RepoGrid = ({ repos }) => {
+function RepoGrid ({ repos }) {
     return (
        <ul className='grid space-around'>
            {repos.map((repo, index) => {
