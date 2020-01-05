@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ThemeContext from '../contexts/theme'
+import Tooltip from './Tooltip'
+
 
 export default function Card({ header, subheader, avatar, href, name, children}) {
     const theme = React.useContext(ThemeContext)
@@ -10,11 +12,13 @@ export default function Card({ header, subheader, avatar, href, name, children})
             <h4 className='header-lg center-text'>
                 {header}
             </h4>
-            <img
-                className='avatar'
-                src={avatar}
-                alt={`Avatar for ${name}`} 
-                />
+            <Tooltip text={`Avatar for ${name}`}>
+                <img
+                    className='avatar'
+                    src={avatar}
+                    alt={`Avatar for ${name}`} 
+                    />
+            </Tooltip>
             {subheader && (
                 <h4 className='center-text'>
                     {subheader}
