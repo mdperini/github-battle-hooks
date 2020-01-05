@@ -5,6 +5,8 @@ import Results from './Results'
 import ThemeContext from '../contexts/theme'
 import { Link } from 'react-router-dom'
 
+const generateId = () => Math.random().toString(36).substring(2) + (new Date()).getTime().toString();
+
 function Instructions () {
   const theme = React.useContext(ThemeContext)
 
@@ -51,7 +53,7 @@ function PlayerInput ({ onSubmit, label }) {
       <div className='row player-inputs'>
         <input
           type='text'
-          id='username'
+          id={`username-${generateId()}`}
           className={`input-${theme}`}
           placeholder='github username'
           autoComplete='off'
