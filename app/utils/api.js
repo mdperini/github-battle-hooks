@@ -18,6 +18,7 @@ function getProfile(username) {
                 throw new Error(getErrorMsg(profile.message, username))
             }
 
+            console.log('profile', JSON.stringify(profile))
             return profile
     })
 }
@@ -30,6 +31,7 @@ function getRepos(username) {
                 throw new Error(getErrorMsg(repos.message, username))
             }
 
+            console.log('repos', JSON.stringify(repos))
             return repos
    })    
 }

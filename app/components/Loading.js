@@ -15,13 +15,15 @@ export default function Loading ({ text = 'Loading', speed = 300 }) {
     const [ content, setContent] = React.useState(text)
 
     React.useEffect(() => {
-        window.setInterval(() => {
+      const interval =  window.setInterval(() => {
             setContent((content) => {
                 return content === `${text}...`
                     ? text
                     : `${content}.`
             })
         }, speed)
+
+        return () => window.clearInterval(interval)
     }, [text, speed])
 
     return (
