@@ -31,9 +31,8 @@ function getRepos(username) {
                 throw new Error(getErrorMsg(repos.message, username))
             }
 
-            console.log('repos', JSON.stringify(repos))
-            return repos
-   })    
+           return repos
+        })    
 }
 
 function getStarCount(repos) {
